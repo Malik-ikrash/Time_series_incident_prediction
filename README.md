@@ -41,7 +41,7 @@ This means the model looks at the last 20 time steps of system metrics to predic
 
 # Synthetic Dataset
 
-A synthetic dataset is generated to simulate system behavior.
+A synthetic dataset is created to simulate system behavior.
 
 Metrics include:
 
@@ -50,6 +50,10 @@ Metrics include:
 * Request latency
 
 Incidents are defined when latency exceeds a threshold, and precursor patterns are introduced before incidents by gradually increasing CPU usage and latency. These patterns allow the model to learn signals that may indicate an upcoming failure.
+
+Incidents are defined when latency exceeds a certain threshold, and patterns such as gradually increasing 
+CPU usage and latency are introduced before incidents. These patterns help the model to learn when an 
+upcoming incident is going to happen.
 
 This approach keeps the dataset simple while still demonstrating the modeling process.
 
@@ -158,6 +162,7 @@ Clone the repository (Two commands):
 
 ```
 git clone https://github.com/Malik-ikrash/Time-series-incident-prediction.git
+
 cd Time-series-incident-prediction
 ```
 
