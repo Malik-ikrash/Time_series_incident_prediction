@@ -49,8 +49,6 @@ Metrics include:
 * Memory utilization
 * Request latency
 
-Incidents are defined when latency exceeds a threshold, and precursor patterns are introduced before incidents by gradually increasing CPU usage and latency. These patterns allow the model to learn signals that may indicate an upcoming failure.
-
 Incidents are defined when latency exceeds a certain threshold, and patterns such as gradually increasing 
 CPU usage and latency are introduced before incidents. These patterns help the model to learn when an 
 upcoming incident is going to happen.
@@ -90,7 +88,7 @@ In this project:
 threshold = 0.3
 ```
 
-Lowering the threshold increases recall (more incidents detected) but may decrease precision (more false alerts). This reflects the typical trade-off in real monitoring systems.
+Lowering the threshold increases recall (more incidents detected) but may decrease precision (more false alerts).
 
 ---
 
@@ -137,9 +135,9 @@ precision    recall  f1-score   support
 ROC-AUC: 1.0
 ```
 
-These results indicate that the model successfully identifies precursor patterns before incidents in the synthetic dataset.
+These results indicate that the model successfully identifies the patterns before incidents in the synthetic dataset.
 
-Because the dataset contains clear signals before incidents, the model achieves near-perfect performance. In real-world systems, more noise and variability would typically lead to lower metrics unlike the results achieved here.
+Because the dataset contains clear signals before incidents, the model achieves near-perfect performance. In real-world systems, more noise and variability would realistically lead to lower metrics unlike the results achieved here.
 
 ---
 
