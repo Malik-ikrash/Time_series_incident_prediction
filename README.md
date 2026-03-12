@@ -1,15 +1,5 @@
 # Time_series_incident_prediction
-This project implements a machine learning model that predicts whether a system incident will occur within the next **H time steps** based on the previous **W time steps** of system metrics. The model uses a **sliding-window formulation** to transform time-series data into supervised learning examples and trains a **Random Forest classifier** to detect precursor patterns that may indicate an upcoming incident.
-
-The goal of this project is to demonstrate correct **problem formulation, model training, evaluation, and analysis** rather than focusing on dataset complexity or large models.
-
----
-
-# Problem Overview
-
-In real-world monitoring systems, incidents (such as outages, latency spikes, or resource exhaustion) are often preceded by abnormal behavior in system metrics. Detecting these patterns early allows systems to raise alerts before the incident occurs.
-
-This project simulates such a scenario by generating synthetic time-series metrics and training a model to predict whether an incident will occur within a future time horizon.
+This project implements a machine learning model that predicts whether a system incident will occur within the next H time steps based on the previous W time steps of system metrics. The model uses a sliding-window formulation to transform time-series data into learning examples and trains a Random Forest classifier to detect precursor patterns that may indicate an upcoming incident.
 
 ---
 
@@ -21,8 +11,8 @@ Time-series data must be converted into supervised learning examples.
 
 We define:
 
-* **W** – number of past time steps used as input features
-* **H** – future prediction horizon
+* W – number of past time steps used as input features
+* H – future prediction horizon
 
 For each time step `t`:
 
@@ -45,7 +35,7 @@ W = 20
 H = 10
 ```
 
-This means the model looks at the **last 20 time steps** of system metrics to predict whether an incident will occur in the **next 10 time steps**.
+This means the model looks at the last 20 time steps of system metrics to predict whether an incident will occur in the next 10 time steps.
 
 ---
 
@@ -59,7 +49,7 @@ Metrics include:
 * Memory utilization
 * Request latency
 
-Incidents are defined when **latency exceeds a threshold**, and precursor patterns are introduced before incidents by gradually increasing CPU usage and latency. These patterns allow the model to learn signals that may indicate an upcoming failure.
+Incidents are defined when latency exceeds a threshold, and precursor patterns are introduced before incidents by gradually increasing CPU usage and latency. These patterns allow the model to learn signals that may indicate an upcoming failure.
 
 This approach keeps the dataset simple while still demonstrating the modeling process.
 
@@ -67,7 +57,7 @@ This approach keeps the dataset simple while still demonstrating the modeling pr
 
 # Model
 
-The model used is a **Random Forest classifier** from `scikit-learn`.
+The model used is a Random Forest classifier from `scikit-learn`.
 
 Random Forest was chosen because:
 
@@ -76,7 +66,7 @@ Random Forest was chosen because:
 * It is robust to noise
 * It requires minimal preprocessing
 
-The model predicts the **probability of an incident occurring within the prediction horizon**.
+The model predicts the probability of an incident occurring within the prediction horizon.
 
 An alert is raised if this probability exceeds a defined threshold.
 
@@ -96,7 +86,7 @@ In this project:
 threshold = 0.3
 ```
 
-Lowering the threshold increases **recall** (more incidents detected) but may decrease **precision** (more false alerts). This reflects the typical trade-off in real monitoring systems.
+Lowering the threshold increases recall (more incidents detected) but may decrease precision (more false alerts). This reflects the typical trade-off in real monitoring systems.
 
 ---
 
